@@ -23,7 +23,7 @@ public class SongController {
     }
 
 
-    @PostMapping(value="/save")
+    @PostMapping(value="/save/{token}")
     public String saveSong(@RequestBody Song song, @PathVariable String token){
         if(token.equals(System.getenv("token"))){
             songRepo.save(song);
@@ -34,7 +34,7 @@ public class SongController {
         }
     }
 
-    @PutMapping(value="update/{id}")
+    @PutMapping(value="update/{id}/{token}")
     public String updateSong(@PathVariable long id, @RequestBody Song song , @PathVariable String token){
         if(token.equals(System.getenv("token"))){
             Song updatedSong=songRepo.findById(id).get();
