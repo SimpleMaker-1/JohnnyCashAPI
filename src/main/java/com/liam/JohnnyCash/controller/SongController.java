@@ -17,9 +17,16 @@ public class SongController {
     public String getPage(){
         return "welcome";
     }
-    @GetMapping(value="/songs")
-    public List<Song> getSongs(){
-        return songRepo.findAll();
+
+
+    @GetMapping(value="/songs/{token}")
+    public List<Song> getSongs(@PathVariable String token){
+        if(token.equals(System.getenv("token")) || token.equals(System.getenv("token2"))){
+            return songRepo.findAll();
+        }
+        else{
+            return null;
+        }
     }
 
 
