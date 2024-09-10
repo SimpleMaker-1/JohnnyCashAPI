@@ -52,7 +52,7 @@ public class SongController {
     public List<Song> getSongsByDate(@PathVariable String token, @PathVariable String date){
         String fixedDate= date.replace(',','/'); //you cannot have / in the URL path so im substituting commas
         if(token.equals(System.getenv("token")) || token.equals(System.getenv("token2"))){
-            return songRepo.findByAlbum(fixedDate);
+            return songRepo.findByDate(fixedDate);
         }
         else{
             return null;
