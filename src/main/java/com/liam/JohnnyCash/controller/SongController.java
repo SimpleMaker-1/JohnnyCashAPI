@@ -19,10 +19,39 @@ public class SongController {
     }
 
 
-    @GetMapping(value="/songs/{token}")
-    public List<Song> getSongs(@PathVariable String token){
+    @GetMapping(value="/song/{id}/{token}")
+    public Song getSong(@PathVariable String token,@PathVariable long id){
         if(token.equals(System.getenv("token")) || token.equals(System.getenv("token2"))){
-            return songRepo.findAll();
+            return songRepo.findById(id).get();
+        }
+        else{
+            return null;
+        }
+    }
+
+    @GetMapping(value="/songs/{songName}/{token}")
+    public List<Song> getSongs(@PathVariable String token,@PathVariable String songName){
+        if(token.equals(System.getenv("token")) || token.equals(System.getenv("token2"))){
+            return songRepo.findByName(songName);
+        }
+        else{
+            return null;
+        }
+    }
+    @GetMapping(value="/songsInAlbum/{albumName}/{token}")
+    public List<Song> getSongsByAlbum(@PathVariable String token, @PathVariable String albumName){
+        if(token.equals(System.getenv("token")) || token.equals(System.getenv("token2"))){
+            return songRepo.findByAlbum(albumName);
+        }
+        else{
+            return null;
+        }
+    }
+
+    @GetMapping(value="/songsByDate/{date}/{token}")
+    public List<Song> getSongsByDate(@PathVariable String token, @PathVariable String date){
+        if(token.equals(System.getenv("token")) || token.equals(System.getenv("token2"))){
+            return songRepo.findByAlbum(date);
         }
         else{
             return null;
