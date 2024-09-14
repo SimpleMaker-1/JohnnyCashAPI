@@ -8,3 +8,4 @@ GetSongByDate: songsByDate/{date}/{token} Please note that date MUST be in "mont
 PostSong: save/{token} plus a json object query
 PutSong: update/{id}/{token} plus a json object query
 DeleteSongByID: song/{id}/{token} please dont do this, i would cry. (jk you cant).
+If you want access to this API, email at: Askme.simplemaker1@gmail.com
