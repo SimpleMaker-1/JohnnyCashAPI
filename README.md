@@ -9,3 +9,4 @@ PostSong: save/{token} plus a json object query
 PutSong: update/{id}/{token} plus a json object query
 DeleteSongByID: song/{id}/{token} please dont do this, i would cry. (jk you cant).
 If you want access to this API, email at: Askme.simplemaker1@gmail.com
+there is a known issue with som songs having messed up title strings. this is due partly to the web scraper i built to fill the database. you will have to do data validation if you want to use this properly
